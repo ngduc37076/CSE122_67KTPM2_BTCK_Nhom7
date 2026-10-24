@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xây dựng lịch trình cá nhân | TripWeave AI</title>
+<meta name="description" content="Tự xếp hoạt động theo từng ngày và nhận gợi ý cân bằng lịch trình.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-shell="light" data-page="traveler-trip-planner">
+<a class="sr-only" href="#main">Bỏ qua tới nội dung chính</a>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="badge-tag">✦ Dành cho du khách</span>
+    <h1 style="margin:12px 0 6px">Xây dựng lịch trình cá nhân</h1>
+    <p class="muted">Thêm hoạt động của bạn và để AI kiểm tra độ cân bằng.</p>
+  </div>
+</section>
+
+<main id="main" class="container" style="padding:28px 0 40px">
+  <div class="split">
+    <div class="card">
+      <div class="panel-head" style="color:var(--ink)">
+        <div><h2 style="font-size:20px">Lịch trình của bạn</h2><p class="muted tiny" id="planCount"></p></div>
+        <button class="btn btn-outline btn-sm" id="addPlace">+ Thêm hoạt động</button>
+      </div>
+      <div class="itinerary">
+        <div class="day-card">
+          <div class="day-head"><b>Ngày 1</b><span class="status info">Hà Nội</span></div>
+          <div id="planList">
+            <div class="activity">
+              <span class="activity-time">08:00</span>
+              <div class="activity-body"><b>Hồ Hoàn Kiếm</b><p>Đi dạo quanh hồ, check-in đền Ngọc Sơn.</p></div>
+              <button class="btn btn-outline btn-sm" data-remove>Xóa</button>
+            </div>
+            <div class="activity">
+              <span class="activity-time">14:00</span>
+              <div class="activity-body"><b>Phố cổ Hà Nội</b><p>36 phố phường, kiến trúc cũ và ẩm thực.</p></div>
+              <button class="btn btn-outline btn-sm" data-remove>Xóa</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="ai-box" id="balanceNote" aria-live="polite"></aside>
+  </div>
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng ký | TripWeave AI</title>
+<meta name="description" content="Tạo tài khoản TripWeave AI.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-shell="light" data-page="register" data-footer="off">
+<a class="sr-only" href="#main">Bỏ qua tới nội dung chính</a>
+
+<section class="hero" style="padding:60px 0">
+  <div class="container" style="display:grid;place-items:center">
+    <div class="card" id="main" style="width:min(520px,100%)">
+      <span class="badge-tag">✦ TripWeave AI</span>
+      <h1 style="font-size:28px;margin:14px 0 4px">Đăng ký</h1>
+      <p class="muted">Tạo tài khoản để lưu lịch trình của bạn.</p>
+      <form class="form" data-auth data-register novalidate style="margin-top:20px">
+        <div class="field">
+          <label for="name">Họ và tên</label>
+          <input class="input" id="name" name="name" type="text" autocomplete="name" placeholder="Nguyễn Văn A" required minlength="3">
+          <p class="field-error" data-error-for="name"></p>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="ban@email.com" required>
+          <p class="field-error" data-error-for="email"></p>
+        </div>
+        <div class="form-grid">
+          <div class="field">
+            <label for="password">Mật khẩu</label>
+            <input class="input" id="password" name="password" type="password" autocomplete="new-password" placeholder="Tối thiểu 6 ký tự" required minlength="6">
+            <p class="field-error" data-error-for="password"></p>
+          </div>
+          <div class="field">
+            <label for="confirm">Nhập lại mật khẩu</label>
+            <input class="input" id="confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Giống ô bên trái" required data-match="password">
+            <p class="field-error" data-error-for="confirm"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="role">Bạn dùng với vai trò</label>
+          <select class="select" id="role" name="role">
+            <option value="traveler">Du khách</option>
+            <option value="guide">Hướng dẫn viên</option>
+            <option value="partner">Đối tác địa phương</option>
+            <option value="admin">Quản trị viên</option>
+          </select>
+          <p class="tiny muted">Vai trò quyết định bạn vào khu nào sau khi đăng nhập. Chỉ muốn xem thử? <a href="login.html" style="color:var(--lime);font-weight:700">Dùng một tài khoản minh họa có sẵn</a>.</p>
+        </div>
+        <button class="btn btn-primary btn-block btn-lg" type="submit">Tạo tài khoản</button>
+        <p class="muted tiny" style="text-align:center">Đã có tài khoản? <a href="login.html" style="color:var(--lime);font-weight:700">Đăng nhập</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

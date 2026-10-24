@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trình tạo lịch trình chuyên nghiệp | TripWeave AI</title>
+<meta name="description" content="Nhập nhu cầu để AI sinh lịch trình kèm giải thích.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-shell="light" data-page="traveler-ai-itinerary">
+<a class="sr-only" href="#main">Bỏ qua tới nội dung chính</a>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="badge-tag">✦ Dành cho du khách</span>
+    <h1 style="margin:12px 0 6px">Trình tạo lịch trình chuyên nghiệp</h1>
+    <p class="muted">AI sẽ tạo lịch trình dựa trên nhu cầu của bạn.</p>
+  </div>
+</section>
+
+<main id="main" class="container" style="padding:28px 0 40px">
+  <div class="split">
+    <form class="card form" id="aiForm" novalidate>
+      <fieldset style="border:0">
+        <legend class="strong" style="font-size:17px;margin-bottom:12px">Bạn muốn đi đâu?</legend>
+        <div class="form-grid">
+          <div class="field">
+            <label for="destination">Điểm đến *</label>
+            <input class="input" id="destination" name="destination" type="text" placeholder="Hà Nội">
+            <p class="field-error" data-error-for="destination"></p>
+          </div>
+          <div class="field">
+            <label for="days">Số ngày *</label>
+            <input class="input" id="days" name="days" type="number" min="1" max="7" value="2">
+            <p class="field-error" data-error-for="days"></p>
+          </div>
+          <div class="field">
+            <label for="budget">Ngân sách</label>
+            <select class="select" id="budget" name="budget">
+              <option>Dưới 2 triệu</option>
+              <option selected>2 – 5 triệu</option>
+              <option>Trên 5 triệu</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pace">Phong cách</label>
+            <select class="select" id="pace" name="pace">
+              <option>Thư giãn</option>
+              <option selected>Vừa phải</option>
+              <option>Khám phá nhiều</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset style="border:0">
+        <legend class="strong" style="font-size:17px">Sở thích *</legend>
+        <div class="choice-grid" style="margin-top:8px">
+          <label class="choice"><input type="checkbox" name="interest" value="Thiên nhiên" checked><span>🌿 Thiên nhiên</span></label>
+          <label class="choice"><input type="checkbox" name="interest" value="Văn hóa" checked><span>🏮 Văn hóa</span></label>
+          <label class="choice"><input type="checkbox" name="interest" value="Ẩm thực"><span>🍜 Ẩm thực</span></label>
+          <label class="choice"><input type="checkbox" name="interest" value="Ảnh đẹp"><span>📷 Ảnh đẹp</span></label>
+          <label class="choice"><input type="checkbox" name="interest" value="Đi bộ"><span>🥾 Đi bộ</span></label>
+        </div>
+        <p class="field-error" id="interestError"></p>
+      </fieldset>
+
+      <button class="btn btn-primary btn-lg" type="submit">✨ Tạo lịch trình bằng AI</button>
+    </form>
+
+    <aside class="ai-box">
+      <b>AI nên biết thêm</b>
+      <p class="muted tiny" style="margin-top:6px">Ghi chú về sức khỏe, độ tuổi hoặc yêu cầu riêng sẽ được ưu tiên khi xếp lịch.</p>
+      <div class="explain"><b>💡 Kết quả gồm những gì?</b>
+        <p class="muted tiny">Lịch trình theo từng ngày, thời gian gợi ý và lý do AI chọn các điểm đó.</p></div>
+    </aside>
+  </div>
+
+  <section style="margin-top:24px" aria-live="polite">
+    <div id="aiResult">
+      <span class="empty-icon">✨</span>
+      <p>Kết quả sẽ hiển thị ở đây sau khi bạn bấm <b>Tạo lịch trình bằng AI</b>.</p>
+    </div>
+  </section>
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khám phá theo sở thích | TripWeave AI</title>
+<meta name="description" content="Tìm địa điểm theo từ khóa, thành phố và nhóm sở thích.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-shell="light" data-page="traveler-discover">
+<a class="sr-only" href="#main">Bỏ qua tới nội dung chính</a>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="badge-tag">✦ Dành cho du khách</span>
+    <h1 style="margin:12px 0 6px">Khám phá theo sở thích</h1>
+    <p class="muted">Tìm địa điểm và trải nghiệm phù hợp với bạn.</p>
+  </div>
+</section>
+
+<main id="main" class="container" style="padding:28px 0 40px">
+  <div class="search-box">
+    <label class="sr-only" for="searchPlace">Tìm địa điểm</label>
+    <input class="input search-input" id="searchPlace" type="search" placeholder="Tìm theo tên, thành phố hoặc nhóm…">
+    <button class="btn btn-outline" id="addPlaceBtn" type="button">＋ Thêm địa điểm</button>
+    <a class="btn btn-primary" href="traveler-ai-itinerary.html">✨ Nhờ AI gợi ý</a>
+  </div>
+
+  <div class="filters" role="group" aria-label="Lọc theo nhóm">
+    <button class="filter active" data-category="all" aria-pressed="true">Tất cả</button>
+    <button class="filter" data-category="Thiên nhiên" aria-pressed="false">🌿 Thiên nhiên</button>
+    <button class="filter" data-category="Văn hóa" aria-pressed="false">🏮 Văn hóa</button>
+    <button class="filter" data-category="Ẩm thực" aria-pressed="false">🍜 Ẩm thực</button>
+    <button class="filter" data-category="Nghỉ dưỡng" aria-pressed="false">🚡 Nghỉ dưỡng</button>
+    <button class="filter" data-category="Tâm linh" aria-pressed="false">🛕 Tâm linh</button>
+    <button class="filter" data-category="mine" aria-pressed="false">📮 Của bạn</button>
+  </div>
+
+  <div class="row-between" style="margin:22px 0 14px">
+    <h2 style="font-size:22px">Gợi ý cho bạn</h2>
+    <span class="muted tiny" id="resultCount"></span>
+  </div>
+
+  <div class="cards" id="placeList"></div>
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng nhập | TripWeave AI</title>
+<meta name="description" content="Đăng nhập vào TripWeave AI.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-shell="light" data-page="login" data-footer="off">
+<a class="sr-only" href="#main">Bỏ qua tới nội dung chính</a>
+
+<section class="hero" style="padding:60px 0">
+  <div class="container" style="display:grid;gap:18px;justify-items:center">
+    <div class="card" id="main" style="width:min(430px,100%)">
+      <span class="badge-tag">✦ TripWeave AI</span>
+      <h1 style="font-size:28px;margin:14px 0 4px">Đăng nhập</h1>
+      <p class="muted">Chào mừng bạn quay lại.</p>
+      <form class="form" data-auth novalidate style="margin-top:20px">
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="ban@email.com" required>
+          <p class="field-error" data-error-for="email"></p>
+        </div>
+        <div class="field">
+          <label for="password">Mật khẩu</label>
+          <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="Tối thiểu 6 ký tự" required minlength="6">
+          <p class="field-error" data-error-for="password"></p>
+        </div>
+        <div class="field">
+          <label for="role">Bạn dùng với vai trò</label>
+          <select class="select" id="role" name="role">
+            <option value="traveler">Du khách</option>
+            <option value="guide">Hướng dẫn viên</option>
+            <option value="partner">Đối tác địa phương</option>
+            <option value="admin">Quản trị viên</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-block btn-lg" type="submit">Đăng nhập</button>
+        <p class="muted tiny" style="text-align:center">Chưa có tài khoản? <a href="register.html" style="color:var(--lime);font-weight:700">Đăng ký</a></p>
+      </form>
+    </div>
+
+    <div class="card demo-accounts" id="demoAccounts" style="width:min(430px,100%)"></div>
+  </div>
+</section>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
