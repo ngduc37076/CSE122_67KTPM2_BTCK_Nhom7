@@ -1,11 +1,3 @@
-/* ============================================================
-   TripWeave AI — design system
-   Toan bo mau lay theo tam "[Duc] - Admin & Partner Management"
-   trong figma/Anh minh hoa/: nen xanh #5676ca, card #6d88c8 chu trang,
-   sidebar navy #34456f, nut xanh la #6db761, dang chon #8bd900.
-   Navbar van giu trang vi trong mockup [Duc] navbar cung trang.
-   ============================================================ */
-
 :root {
   /* dashboard */
   --navy: #34456f;
@@ -24,7 +16,7 @@
   --warn: #cfd957;
   --bad: #d66766;
 
-  /* nen / surface / chu — bo mau [Duc] */
+  /* nen / surface / chu — bo mau */
   --page: #5676ca;
   --surface: #6d88c8;
   --ink: #ffffff;

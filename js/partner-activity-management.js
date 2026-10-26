@@ -99,7 +99,7 @@ TW.nav = [
   { href: "#/partner-profile.html", label: "Hồ sơ đối tác", key: "partner" },
 ];
 
-/* Sidebar dashboard — dung theo mock [Duc]: 3 lien + 1 active */
+/* Sidebar dashboard : 3 lien + 1 active */
 
 TW.side = [
   { href: "partner-activity-management.html", label: "Hoạt động", key: "activity" },
