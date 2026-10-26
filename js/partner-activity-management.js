@@ -99,41 +99,41 @@ TW.nav = [
   { href: "#/partner-profile.html", label: "Hồ sơ đối tác", key: "partner" },
 ];
 
-/*Sidebar dashboard*/
+/* Sidebar dashboard — dung theo mock [Duc]: 3 lien + 1 active */
 
 TW.side = [
-    { href: "partner-activity-management.html", label: "Hoạt động", key: "activity" },
-    { href: "#/partner-interest-dashboard.html", label: "Sự quan tâm", key: "interest" },
-    { href: "#/partner-profile.html", label: "Hồ sơ", key: "profile" },
-    { href: "#/admin-content-moderation.html", label: "Kiểm duyệt", key: "moderation" },
+  { href: "partner-activity-management.html", label: "Hoạt động", key: "activity" },
+  { href: "#/partner-interest-dashboard.html", label: "Sự quan tâm", key: "interest" },
+  { href: "#/partner-profile.html", label: "Hồ sơ", key: "profile" },
+  { href: "#/admin-content-moderation.html", label: "Kiểm duyệt", key: "moderation" },
 ];
 
-/* ---------------2.DU LIEU DASHBOARD---------------------*/
+/* ---------------- 2. DU LIEU DASHBOARD ---------------- */
 
-TW.dash = { "partner-activity-management": {
+TW.dash = {  "partner-activity-management": {
     side: "activity", roleLabel: "Đối tác địa phương",
     title: "Quản lý hoạt động",
-    sub: "Theo dõi dữ liệu và xử lý nghiệp vụ. ",
+    sub: "Theo dõi dữ liệu và xử lý nghiệp vụ.",
     stats: [["18", "Trải nghiệm"], ["15", "Đang mở"], ["327", "Lượt đặt"], ["48.2M", "Doanh thu"]],
     rows: [
-        ["Workshop làm gốm", "Bát Tràng . 3 giờ", ["Đang mở", "success"], "Hôm nay" ],
-        ["Food Walk", "Phố Cổ . 2 giờ", ["Chưa mở", "warning"], "Hôm nay"],
-        ["Sunset Coffee", "Tây Hồ . 1,5 tiếng", ["Ẩn", "danger"], "Hôm qua"],
-    ],    
-},};
+      ["Workshop làm gốm", "Bát Tràng · 3 giờ", ["Đang mở", "success"], "Hôm nay"],
+      ["Food Walk", "Phố Cổ · 2 giờ", ["Chưa mở", "warning"], "Hôm nay"],
+      ["Sunset Coffee", "Tây Hồ · 1,5 tiếng", ["Ẩn", "danger"], "Hôm qua"],
+    ],
+  },};
 
-/* Vai tro can co de vao tung dashboard - suy ra tu tien to cua ten trang */
+/* Vai tro can co de vao tung dashboard — suy ra tu tien to cua ten trang */
 
 const DASH_ROLE = { guide: "guide", partner: "partner", admin: "admin" };
 
 Object.keys(TW.dash).forEach((k) => {
-    TW.dash[k].role = DASH_ROLE[k.split("-")[0]];
-    TW.dash[k].canCreate = k === "partner-activity-management" || k === "admin-content-moderation";
+  TW.dash[k].role = DASH_ROLE[k.split("-")[0]];
+  TW.dash[k].canCreate = k === "partner-activity-management" || k === "admin-content-moderation";
 });
 TW.dash["partner-activity-management"].live = "partner";
 
 
-/*-----------------------3. DU LIEU TRAVELER---------------*/
+/* ---------------- 3. DU LIEU TRANG TRAVELER ---------------- */
 
 let dashState = "default";
 
@@ -162,7 +162,7 @@ function stateError() {
   </div>`;
 }
 
-/*Du lieu that cua hai dashboard kiem duyet / doi tac - doc tu kho dia diem */
+/* Du lieu that cua hai dashboard kiem duyet / doi tac — doc tu kho dia diem */
 
 function renderDashBody(cfg) {
   if (dashState === "loading") return stateLoading();
@@ -206,7 +206,7 @@ function renderDashBody(cfg) {
         })
         .join("");
 
-        const panelTitle = cfg.live === "moderation" ? "Hàng chờ kiểm duyệt" : cfg.live === "partner" ? "Địa điểm tôi đã gửi" : "Hoạt động gần đây";
+  const panelTitle = cfg.live === "moderation" ? "Hàng chờ kiểm duyệt" : cfg.live === "partner" ? "Địa điểm tôi đã gửi" : "Hoạt động gần đây";
   const createBtn = cfg.live === "partner" || cfg.canCreate
     ? `<button class="btn btn-primary btn-sm" data-add-place>+ Thêm địa điểm</button>`
     : "";
@@ -341,7 +341,7 @@ function mountDenied(cfg) {
   });
 }
 
-/* Thanh demo 4 trang thai - chi hien tren trang dashboard */
+/* Thanh demo 4 trang thai — chi hien tren trang dashboard */
 
 function mountStateBar(key) {
   const bar = document.createElement("div");
@@ -367,7 +367,7 @@ function mountStateBar(key) {
   document.body.appendChild(bar);
 }
 
-/* ---------------------&. TRANG TRAVELER --------------------*/
+/* ---------------- 7. TRANG TRAVELER ---------------- */
 
 function buildSidebar(cfg) {
   const links = TW.side
@@ -419,3 +419,241 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+TW.places = [
+  { name: "Hồ Hoàn Kiếm", city: "Hà Nội", category: "Thiên nhiên", rating: 4.9, price: 0, time: "1-2 giờ", emoji: "🌿", desc: "Đi dạo quanh hồ, check-in đền Ngọc Sơn." },
+  { name: "Phố cổ Hà Nội", city: "Hà Nội", category: "Văn hóa", rating: 4.8, price: 0, time: "2-3 giờ", emoji: "🏮", desc: "36 phố phường, kiến trúc cũ và ẩm thực." },
+  { name: "Lăng Chủ tịch", city: "Hà Nội", category: "Văn hóa", rating: 4.6, price: 0, time: "1-2 giờ", emoji: "🏛️", desc: "Quảng trường Ba Đình và khu di tích." },
+  { name: "Chùa Trấn Quốc", city: "Hà Nội", category: "Tâm linh", rating: 4.7, price: 20000, time: "1 giờ", emoji: "🛕", desc: "Ngôi chùa bên hồ Tây, view hoàng hôn." },
+  { name: "Vịnh Hạ Long", city: "Hạ Long", category: "Thiên nhiên", rating: 4.9, price: 290000, time: "Cả ngày", emoji: "⛰️", desc: "Du thuyền ngắm hàng nghìn đảo đá." },
+  { name: "Phố cổ Hội An", city: "Hội An", category: "Văn hóa", rating: 4.8, price: 120000, time: "3-4 giờ", emoji: "🏮", desc: "Đèn lồng, nhà cổ và cầu Nhật Bản." },
+  { name: "Bà Nà Hills", city: "Đà Nẵng", category: "Nghỉ dưỡng", rating: 4.7, price: 900000, time: "Cả ngày", emoji: "🚡", desc: "Cầu Vàng và khu làng Pháp trên núi." },
+  { name: "Chợ Bến Thành", city: "TP.HCM", category: "Ẩm thực", rating: 4.5, price: 0, time: "2 giờ", emoji: "🛍️", desc: "Ăn sáng, mua đặc sản về làm quà." },
+];
+
+TW.interests = ["Thiên nhiên", "Văn hóa", "Ẩm thực", "Ảnh đẹp", "Đi bộ", "Trẻ em"];
+
+TW.categories = ["Thiên nhiên", "Văn hóa", "Tâm linh", "Ẩm thực", "Nghỉ dưỡng", "Giải trí", "Khác"];
+
+/* ---------------- 3b. TAI KHOAN MAU & PHIEN ---------------- */
+/* Mat khau demo de nguyen plain text vi day la nguyen mau frontend, khong co backend. */
+
+TW.money = (v) => (v === 0 ? "Miễn phí" : new Intl.NumberFormat("vi-VN").format(v) + "đ");
+
+TW.seedPlaces = TW.places.map((p, i) => ({ ...p, id: "seed-" + i, status: "approved", owner: "TripWeave", ownerRole: "seed", at: "Dữ liệu mẫu" }));
+
+TW.userPlaces = () => readStore("tripweave_places", []);
+
+TW.allPlaces = () => [...TW.seedPlaces, ...TW.userPlaces()];
+
+TW.approvedPlaces = () => TW.allPlaces().filter((p) => p.status === "approved");
+
+TW.submitPlace = (data) => {
+  const s = TW.session();
+  const list = TW.userPlaces();
+  const place = {
+    ...data,
+    id: "u" + Date.now(),
+    status: "pending",
+    owner: s ? s.name : "Khách vãng lai",
+    ownerEmail: s ? s.email : "",
+    ownerRole: s ? s.role : "guest",
+    at: new Date().toLocaleString("vi-VN"),
+  };
+  list.push(place);
+  writeStore("tripweave_places", list);
+  return place;
+};
+
+TW.decidePlace = (id, approve) => {
+  writeStore("tripweave_places", TW.userPlaces().map((p) => (p.id === id ? { ...p, status: approve ? "approved" : "rejected" } : p)));
+};
+
+TW.resetPlaces = () => localStorage.removeItem("tripweave_places");
+
+/* Cac hinh thai dang ve danh sach dia diem cung cap nhat khi kho thay doi */
+
+const placeListeners = [];
+
+const onPlacesChanged = (fn) => placeListeners.push(fn);
+
+const emitPlacesChanged = () => placeListeners.forEach((fn) => fn());
+
+/* ---------------- 4. TIEN ICH ---------------- */
+
+function closeModal() {
+  document.querySelector(".modal-layer")?.remove();
+  document.removeEventListener("keydown", escClose);
+}
+
+function escClose(e) {
+  if (e.key === "Escape") closeModal();
+}
+
+function openModal(html) {
+  closeModal();
+  const layer = document.createElement("div");
+  layer.className = "modal-layer";
+  layer.innerHTML = `<div class="modal-backdrop" data-close></div><div class="modal modal-wide" role="dialog" aria-modal="true">${html}</div>`;
+  document.body.appendChild(layer);
+  layer.addEventListener("click", (e) => {
+    if (e.target.closest("[data-close]")) closeModal();
+  });
+  document.addEventListener("keydown", escClose);
+  layer.querySelector("input, select, button")?.focus();
+  return layer;
+}
+
+const PLACE_FORM_HTML = `
+<form class="form" id="placeForm" novalidate>
+  <h2>Thêm địa điểm mới</h2>
+  <p class="muted">Địa điểm bạn gửi sẽ vào hàng chờ kiểm duyệt. Quản trị viên duyệt thì nó mới xuất hiện công khai và được AI gợi ý.</p>
+  <div class="form-grid">
+    <div class="field">
+      <label for="pName">Tên địa điểm</label>
+      <input class="input" id="pName" name="name" placeholder="Cà phê Cổ Ngựa">
+      <p class="field-error" data-error-for="name"></p>
+    </div>
+    <div class="field">
+      <label for="pCity">Thành phố / vùng</label>
+      <input class="input" id="pCity" name="city" placeholder="Hà Nội">
+      <p class="field-error" data-error-for="city"></p>
+    </div>
+    <div class="field">
+      <label for="pCat">Danh mục</label>
+      <select class="select" id="pCat" name="category">${TW.categories.map((c) => `<option>${c}</option>`).join("")}</select>
+    </div>
+    <div class="field">
+      <label for="pTime">Thời lượng tham quan</label>
+      <input class="input" id="pTime" name="time" placeholder="2 giờ" value="2 giờ">
+    </div>
+    <div class="field">
+      <label for="pPrice">Giá vé (VND, 0 = miễn phí)</label>
+      <input class="input" id="pPrice" name="price" type="number" min="0" step="1000" value="0">
+    </div>
+    <div class="field">
+      <label for="pEmoji">Biểu tượng</label>
+      <input class="input" id="pEmoji" name="emoji" maxlength="4" value="📍">
+    </div>
+  </div>
+  <div class="field">
+    <label for="pDesc">Vì sao nơi này đáng ghé?</label>
+    <textarea class="textarea" id="pDesc" name="desc" placeholder="Một câu mô tả ngắn gọn, dễ hiểu."></textarea>
+    <p class="field-error" data-error-for="desc"></p>
+  </div>
+  <div class="row">
+    <button class="btn btn-primary" type="submit">Gửi để kiểm duyệt</button>
+    <button class="btn btn-outline" type="button" data-close>Hủy</button>
+  </div>
+</form>`;
+
+function openPlaceForm(onDone) {
+  const layer = openModal(PLACE_FORM_HTML);
+  const form = layer.querySelector("#placeForm");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    form.querySelectorAll(".field-error").forEach((n) => (n.textContent = ""));
+    form.querySelectorAll(".input").forEach((n) => n.classList.remove("invalid"));
+
+    const val = (n) => form.elements[n].value.trim();
+    let bad = false;
+    const flag = (n, msg) => {
+      form.querySelector(`[data-error-for="${n}"]`).textContent = msg;
+      form.elements[n].classList.add("invalid");
+      bad = true;
+    };
+    if (!val("name")) flag("name", "Vui lòng nhập tên địa điểm.");
+    if (!val("city")) flag("city", "Vui lòng nhập thành phố hoặc vùng.");
+    if (val("desc").length < 10) flag("desc", "Mô tả cần tối thiểu 10 ký tự.");
+    if (bad) return;
+
+    const place = TW.submitPlace({
+      name: val("name"),
+      city: val("city"),
+      category: val("category"),
+      time: val("time") || "Chưa rõ",
+      price: Math.max(0, Number(val("price")) || 0),
+      emoji: val("emoji") || "📍",
+      desc: val("desc"),
+      rating: 0,
+    });
+    closeModal();
+    TW.toast("Đã gửi! Đang chờ quản trị viên duyệt.", "success");
+    onDone ? onDone(place) : emitPlacesChanged();
+  });
+}
+
+/* Khach vang lai muon gui thi hoi dang nhap truoc — de bai gui duoc gan cho ai */
+
+function openSignInPrompt() {
+  openModal(`
+    <div class="modal-icon" aria-hidden="true">🔒</div>
+    <h2>Bạn chưa đăng nhập</h2>
+    <p class="muted">Địa điểm gửi lên cần gắn với một tài khoản để quản trị viên biết ai đã gửi. Bạn có thể dùng một trong bốn tài khoản mẫu.</p>
+    <div class="row" style="justify-content:center;margin-top:14px">
+      <a class="btn btn-primary" href="#/login.html">Đăng nhập để tiếp tục</a>
+      <button class="btn btn-outline" type="button" data-close>Để sau</button>
+    </div>`);
+}
+
+/* ---------------- 5. GEN VO TRANG ---------------- */
+
+function liveData(cfg) {
+  const mine = TW.userPlaces();
+  const pend = mine.filter((p) => p.status === "pending");
+  const ok = mine.filter((p) => p.status === "approved");
+  const no = mine.filter((p) => p.status === "rejected");
+
+  if (cfg.live === "moderation") {
+    return {
+      stats: [
+        [String(pend.length), "Chờ duyệt"],
+        [String(ok.length + TW.seedPlaces.length), "Đã duyệt"],
+        [String(no.length), "Bị từ chối"],
+        [String(mine.length), "Do người dùng gửi"],
+      ],
+      rows: pend.map((p) => [
+        p.name,
+        `${p.city} · ${p.category} · bởi ${p.owner}`,
+        ["Chờ duyệt", "warning"],
+        p.at,
+        p.id,
+      ]),
+    };
+  }
+
+  const s = TW.session();
+  const mineAsPartner = mine.filter((p) => p.ownerEmail === (s ? s.email : ""));
+  const badge = (st) => (st === "approved" ? ["Đã duyệt", "success"] : st === "rejected" ? ["Bị từ chối", "danger"] : ["Chờ duyệt", "warning"]);
+  return {
+    stats: [
+      [String(mineAsPartner.length), "Địa điểm đã gửi"],
+      [String(mineAsPartner.filter((p) => p.status === "pending").length), "Đang chờ"],
+      [String(mineAsPartner.filter((p) => p.status === "approved").length), "Đã lên sóng"],
+      [String(mineAsPartner.filter((p) => p.status === "rejected").length), "Cần bổ sung"],
+    ],
+    rows: mineAsPartner.map((p) => [p.name, `${p.city} · ${p.category} · ${TW.money(p.price)}`, badge(p.status), p.at, null]),
+  };
+}
+
+/* Ban tach tu dung: link nao bat dau bang #/ thuoc giao dien khac nen giu lai tai cho. */
+const DEMO_ROLE = "partner";
+const ELSEWHERE = {"traveler-discover.html":"Khám phá theo sở thích","traveler-trip-planner.html":"Xây dựng lịch trình cá nhân","traveler-ai-itinerary.html":"Lịch trình thông minh","guide-dashboard.html":"Bảng điều khiển hướng dẫn viên","guide-curated-collections.html":"Bộ sưu tập đã tuyển chọn","guide-trip-review.html":"Đánh giá chuyến đi","partner-activity-management.html":"Quản lý hoạt động","partner-interest-dashboard.html":"Dashboard sự quan tâm","partner-profile.html":"Hồ sơ đối tác","login.html":"trang Đăng nhập","register.html":"trang Đăng ký","admin-content-moderation.html":"trang Kiểm duyệt"};
+function initIsolatedLinks() {
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#/"]');
+    if (!a) return;
+    e.preventDefault();
+    const file = a.getAttribute("href").slice(2);
+    if (file === "login.html") {
+      const u = TW.users.find((x) => x.role === DEMO_ROLE);
+      if (!u) return;
+      TW.signIn(u);
+      TW.toast("Đã đăng nhập nhanh bằng tài khoản " + TW.ROLE_LABEL[u.role] + ".", "success");
+      setTimeout(() => location.reload(), 500);
+      return;
+    }
+    TW.toast((ELSEWHERE[file] || file) + " thuộc một giao diện khác, không có trong bản tách này.");
+  });
+}
+document.addEventListener("DOMContentLoaded", initIsolatedLinks);
